@@ -1,35 +1,50 @@
-// RegisterForm.js
-import React from 'react';
+import React, { useState } from 'react';
 
-const RegisterForm = () => {
+const RegisterPage = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Aquí puedes realizar la lógica para enviar los datos del formulario al servidor para el registro
+
+
+        console.log(formData);
+
+    };
+
     return (
         <div>
         <h2>Registro</h2>
-        <form>
-            {/* Inputs para nombre de usuario, correo electrónico y contraseña */}
-            <label htmlFor="username">Nombre de Usuario</label>
-            <input type="text" id="username" name="username" />
-            <label htmlFor="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" />
-            <label htmlFor="password">Contraseña</label>
-            <input type="password" id="password" name="password" />
-            <label htmlFor="password">Confirmar Contraseña</label>
-            <input type="password" id="password" name="password" />
-            
-            {/* Botón de registro */}
+        <form onSubmit={handleSubmit}>
+            <div>
+            <label htmlFor="name">Nombre:</label>
+            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+            </div>
+            <div>
+            <label htmlFor="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+            </div>
+            <div>
+            <label htmlFor="password">Contraseña:</label>
+            <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+            </div>
             <button type="submit">Registrarse</button>
 
-            {/* Enlace para redirigir a la página de inicio */}
             <p><a href="/">Volver al inicio</a></p>
-
-            {/* Enlace para redirigir a la página de inicio de sesión */}
             <p>¿Ya tienes una cuenta? <a href="/login">Inicia Sesión</a></p>
-
-            {/* Enlace para redirigir a la página de recuperación de contraseña */}
             <p><a href="/forgot-password">¿Olvidaste tu contraseña?</a></p>
         </form>
         </div>
     );
 };
 
-export default RegisterForm;
+export default RegisterPage;
+
