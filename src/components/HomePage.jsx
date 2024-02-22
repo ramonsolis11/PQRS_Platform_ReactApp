@@ -1,6 +1,5 @@
 // HomePage.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     return (
@@ -21,7 +20,7 @@ const HomePage = () => {
                 <section className="call-to-action">
                     <h2>¡Regístrate ahora para una mejor atención!</h2>
                     <p>Si aún no tienes una cuenta, puedes registrarte para utilizar todas las funcionalidades de nuestra aplicación PQRS.</p>
-                    <Link to="/register" className="btn btn-primary">Regístrate</Link>
+                    {/* <Link to="/register" className="btn btn-primary">Regístrate</Link> */}
                 </section>
             </div>
         </div>
