@@ -1,7 +1,9 @@
-// RegisterForm.jsx
+// routes/auth.js
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
+
 
 const RegisterForm = () => {
     return (
@@ -19,8 +21,13 @@ const RegisterForm = () => {
                     password: Yup.string().min(6, 'La contraseña debe tener al menos 6 caracteres').required('La contraseña es requerida')
                 })}
                 onSubmit={(values, { setSubmitting }) => {
-                    // Aquí puedes enviar los datos del formulario al servidor para el registro
-                    console.log(values);
+                    axios.post('/api/register', values)
+                        .then(response => {
+                            console.log(response.data);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
                 }}
             >
                 <Form>
@@ -47,4 +54,3 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
-

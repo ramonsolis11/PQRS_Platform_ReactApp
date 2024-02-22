@@ -12,11 +12,11 @@ const App = () => {
   return (
     <Router>
       <div>
-        <h1>Aplicación de PQRS</h1>
+        <h1>Plataforma PQRS - Destilería Cerro Azul</h1>
         <nav>
           <ul>
             <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/about">Sobre Nosotros</Link></li>
+            <li><Link to="/about">Nosotros</Link></li>
             <li><Link to="/services">Servicios</Link></li>
             <li><Link to="/contact">Contáctanos</Link></li>
             <li><Link to="/pqrs-form">Formulario PQRS</Link></li>
@@ -36,7 +36,7 @@ const App = () => {
         </Routes>
 
         <footer>
-          <p>© 2024 - Aplicación de PQRS</p>
+          <p>© 2024 Grupo Aurum. Todos los derechos reservados.</p>
         </footer>
       </div>
     </Router>

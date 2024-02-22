@@ -7,7 +7,8 @@ const AboutPage = () => {
         <div>
             <h2>Acerca de Nosotros</h2>
             {/* Contenido sobre nosotros */}
-            <p>Somos una empresa dedicada a la prestación de servicios de calidad.</p>
+            <p>Nuestro enfoque es la producción de bebidas y cosméticos de calidad para garantizar la satisfacción del consumidor nacional e internacional. </p>
+            <p>Contamos con certificados de Buenas Prácticas de Manufactura y de la Agencia de Regulación Sanitaria.</p>
 
             {/* Enlace para redirigir a la página de inicio */}
             <p><Link to="/">Volver al inicio</Link></p>
