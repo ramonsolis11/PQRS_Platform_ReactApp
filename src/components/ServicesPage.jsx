@@ -1,4 +1,4 @@
-// ServicesPage.js
+// ServicesPage.jsx
 import React from 'react';
 
 const ServicesPage = () => {

@@ -1,7 +1,9 @@
-// PQRSForm.js
+// PQRSForm.jsx
 import React from "react";
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+
+
 
 const PQRSForm = () => {
   // Estados para cada campo del formulario

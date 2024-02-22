@@ -1,4 +1,4 @@
-// Footer.js
+// Footer.jsx
 import React from 'react';
 
 const Footer = () => {

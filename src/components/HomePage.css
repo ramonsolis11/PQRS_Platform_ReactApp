@@ -1,0 +1,36 @@
+.homepage-container {
+    padding: 50px; /* Aumentar el espacio interno */
+}
+
+.homepage-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.homepage-title {
+    font-size: 32px; /* Aumentar el tamaño del título */
+    margin-bottom: 20px; /* Añadir espacio inferior */
+    color: #232A2D; /* Cambiar color del texto */
+}
+
+.homepage-description {
+    font-size: 18px; /* Ajustar tamaño del texto */
+    margin-bottom: 30px; /* Añadir espacio inferior */
+    color: #60727B; /* Cambiar color del texto */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px; /* Aumentar el tamaño del botón */
+    background-color: #7F96A1; /* Cambiar color de fondo */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 8px; /* Aumentar la curvatura de los bordes */
+    transition: background-color 0.3s ease; /* Agregar transición */
+}
+
+.cta-button:hover {
+    background-color: #404C52; /* Cambiar color de fondo al pasar el cursor */
+}
+

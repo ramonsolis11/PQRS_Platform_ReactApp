@@ -1,0 +1,41 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #232A2D; /* Cambio de color de fondo */
+    color: #FFFFFF; /* Cambio de color del texto */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agregar sombra */
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 30px; /* Aumentar espaciado entre elementos */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #FFFFFF; /* Cambio de color del texto */
+    transition: color 0.3s ease; /* Agregar transición */
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+    color: #7F96A1; /* Cambio de color al pasar el cursor */
+}
+
+
