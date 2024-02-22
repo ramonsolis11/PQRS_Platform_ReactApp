@@ -1,10 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ServicesPage from './components/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import PQRSForm from './components/PQRSForm';
+import LoginPage from './components/LoginForm';
+import RegisterPage from './components/RegisterForm';
 
 const App = () => {
   return (
@@ -13,11 +15,13 @@ const App = () => {
         <h1>Aplicación de PQRS</h1>
         <nav>
           <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/about">Acerca de</a></li>
-            <li><a href="/services">Servicios</a></li>
-            <li><a href="/contact">Contacto</a></li>
-            <li><a href="/pqrs-form">Formulario PQRS</a></li>
+            <li><Link to="/">Inicio</Link></li>
+            <li><Link to="/about">Sobre Nosotros</Link></li>
+            <li><Link to="/services">Servicios</Link></li>
+            <li><Link to="/contact">Contáctanos</Link></li>
+            <li><Link to="/pqrs-form">Formulario PQRS</Link></li>
+            <li><Link to="/login">Iniciar Sesión</Link></li>
+            <li><Link to="/register">Registrarse</Link></li>
           </ul>
         </nav>
         
@@ -27,6 +31,8 @@ const App = () => {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/pqrs-form" element={<PQRSForm />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
 
         <footer>
