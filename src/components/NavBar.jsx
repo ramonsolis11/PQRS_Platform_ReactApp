@@ -10,20 +10,14 @@ const NavBar = () => {
 
     return (
         <nav className="navbar">
-            {/* Botón del menú hamburguesa visible solo en pantallas pequeñas */}
-            <button className="menu-icon" onClick={handleNavCollapse}>
-                {/* Estilizado con CSS para parecer un menú hamburguesa */}
+            <button className="menu-icon" onClick={handleNavCollapse} aria-expanded={!isNavCollapsed}>
                 <div className="hamburger-menu">
                     <span className="bar"></span>
                     <span className="bar"></span>
                     <span className="bar"></span>
                 </div>
             </button>
-            <div className={`navbar-collapse ${isNavCollapsed ? 'collapse' : 'active'}`}>
-                {/* tus items del navbar */}
-            </div>
-            <ul className={`navbar-nav ${isNavCollapsed ? '' : 'active'}`}>
-                {/* tus items del navbar */}
+            <ul className={`navbar-nav ${isNavCollapsed ? 'collapse' : 'active'}`}>
                 <li className="nav-item">
                     <Link to="/" className="nav-link">Inicio</Link>
                 </li>
@@ -40,16 +34,17 @@ const NavBar = () => {
                     <Link to="/pqrs-form" className="nav-link">PQRS</Link>
                 </li>
                 <li className="nav-item">
-                        <Link to="/login" className="btn">Iniciar Sesión</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/register" className="btn btn-primary">Regístrate</Link>
-                    </li>
-                </ul>
+                    <Link to="/login" className="btn nav-link">Iniciar Sesión</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/register" className="btn btn-primary nav-link">Regístrate</Link>
+                </li>
+            </ul>
         </nav>
     );
 };
 
 export default NavBar;
+
 
 

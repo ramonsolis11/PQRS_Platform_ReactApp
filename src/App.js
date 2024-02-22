@@ -1,4 +1,4 @@
-// APP.JS
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
@@ -7,27 +7,27 @@ import AboutPage from './components/AboutPage';
 import ServicesPage from './components/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import PQRSFormPage from './components/PQRSForm';
+import Footer from './components/Footer';
 import './assets/styles/styles.css';
-
 
 
 const App = () => {
   return (
     <Router>
-      <div>
-        <NavBar /> {/* Aquí se muestra el NavBar en la parte superior de la aplicación */}
-        <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/pqrs-form" element={<PQRSFormPage />} />
-        </Routes>
-        <footer>
-          <p>© 2024 Grupo Aurum. Todos los derechos reservados.</p>
-        </footer>
+        <div className="site-container">
+          <NavBar />
+          <div className="content-wrap"> {/* Contenedor para el contenido principal */}
+          <Routes>
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/pqrs-form" element={<PQRSFormPage />} />
+          </Routes>
+          <Footer /> {/* El Footer fuera del content-wrap pero dentro del site-container */}
+        </div>
       </div>
-    </Router>
+      </Router>
   );
 }
 
