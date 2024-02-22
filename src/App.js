@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import AboutPage from './components/AboutPage';
+import ServicesPage from './components/ServicesPage';
+import ContactPage from './pages/ContactPage';
+import PQRSForm from './components/PQRSForm';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <h1>Aplicación de PQRS</h1>
+        <nav>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/about">Acerca de</a></li>
+            <li><a href="/services">Servicios</a></li>
+            <li><a href="/contact">Contacto</a></li>
+            <li><a href="/pqrs-form">Formulario PQRS</a></li>
+          </ul>
+        </nav>
+        
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/pqrs-form" element={<PQRSForm />} />
+        </Routes>
+
+        <footer>
+          <p>© 2024 - Aplicación de PQRS</p>
+        </footer>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
