@@ -48,12 +48,14 @@ const PQRSForm = () => {
     };
 
     return (
-        <Container>
-        <Row className="justify-content-md-center">
-            <Col xs={12}>
-            <h1>PQRS - Destilería Cerro Azul</h1>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3">
+        <Container className="pqs-form-container">
+            <Row className="justify-content-md-center">
+                <Col xs={12} md={8}>
+                    <Form onSubmit={handleSubmit} noValidate>
+                        <h1 className="form-title">PQRS - Destilería Cerro Azul</h1>
+
+                {/* Sección Tipo de Solicitud */}        
+                <Form.Group controlId="formRequestType" className="mb-3">
                 <Form.Label>Tipo de Solicitud</Form.Label>
                 <Form.Select
                     name="requestType"
@@ -69,9 +71,8 @@ const PQRSForm = () => {
                 </Form.Select>
                 </Form.Group>
 
-                {/* Tipo de Queja */}
-                {["queja", "reclamo"].includes(formData.requestType) && (
-                <Form.Group className="mb-3">
+                {/* Sección Tipo de Solicitud */}
+            <Form.Group controlId="formRequestType" className="mb-3">
                     <Form.Label>Tipo de Queja</Form.Label>
                     <Form.Select
                     name="complaintType"
@@ -85,10 +86,10 @@ const PQRSForm = () => {
                     <option value="otro">Otro</option>
                     </Form.Select>
                 </Form.Group>
-                )}
 
-                {/* Reclamos Comunes solo para Reclamo o Queja */}
-                {["queja", "reclamo"].includes(formData.requestType) && (
+                {/* Renderizado condicional basado en el tipo de solicitud */}
+                {formData.requestType === "queja" && (
+                <div className="complaint-section">
                 <Form.Group className="mb-3">
                     <Form.Label>Reclamos Comunes</Form.Label>
                     <Form.Select
@@ -114,6 +115,7 @@ const PQRSForm = () => {
                     </option>
                     </Form.Select>
                 </Form.Group>
+                </div>
                 )}
 
                 {/* Detalle del Defecto solo si el reclamo común es 'productoDefectuoso' */}
@@ -147,7 +149,8 @@ const PQRSForm = () => {
                 </Form.Group>
                 )}
 
-                {/* Información de Contacto */}
+                {/* Sección de Información de Contacto */}
+                <section className="contact-info-section">
                 <Form.Group className="mb-3">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
@@ -158,6 +161,8 @@ const PQRSForm = () => {
                     placeholder="Ingresa tu nombre completo"
                 />
                 </Form.Group>
+                </section>
+
 
                 {/* Tipo de Identificación */}
                 <Form.Group className="mb-3">
@@ -206,7 +211,8 @@ const PQRSForm = () => {
                 />
                 </Form.Group>
 
-                {/* Detalles del Producto */}
+                {/* Sección de Detalles del Producto */}
+                <section className="product-details-section">
                 <Form.Group className="mb-3">
                 <Form.Label>Tipo de Producto</Form.Label>
                 <Form.Select
@@ -216,15 +222,15 @@ const PQRSForm = () => {
                 >
                     <option value="">Seleccione una opción</option>
                     {/* Añade opciones de productos aquí */}
-                    <option value="whiskey">Whiskey</option>
-                    <option value="ron">Ron</option>
-                    <option value="vodka">Vodka</option>
-                    <option value="tequila">Tequila</option>
-                    <option value="gin">Gin</option>
-                    <option value="brandy">Brandy</option>
-                    <option value="licor">Licor</option>
+                    <option value="ElSabrosón">El Sabrosón</option>
+                    <option value="ElQuemón">El Quemón</option>
+                    <option value="Piquete">Piquete</option>
+                    <option value="Farolazo">Farolazo</option>
+                    <option value="PuriGel">PuriGel</option>
+                    <option value="PuriAlcohol">PuriAlcohol</option>
                 </Form.Select>
                 </Form.Group>
+                </section>
 
                 {/* Información de la Factura o Orden de Compra */}
                 <Form.Group className="mb-3">
@@ -265,13 +271,16 @@ const PQRSForm = () => {
                     name="termsAndConditions"
                     checked={formData.termsAndConditions}
                     onChange={handleChange}
+                    required
                 />
                 </Form.Group>
 
                 {/* Botón de Envío */}
-                <Button variant="primary" type="submit">
-                Enviar Solicitud
+            <div className="submit-section">
+                <Button variant="primary" type="submit" className="submit-btn">
+                    Enviar Solicitud
                 </Button>
+            </div>
             </Form>
             </Col>
         </Row>

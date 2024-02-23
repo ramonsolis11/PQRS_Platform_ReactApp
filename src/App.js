@@ -5,7 +5,7 @@ import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ServicesPage from './components/ServicesPage';
-import ContactPage from './pages/ContactPage';
+import ContactPage from './components/ContactForm';
 import PQRSFormPage from './components/PQRSForm';
 import Footer from './components/Footer';
 import './assets/styles/styles.css';
