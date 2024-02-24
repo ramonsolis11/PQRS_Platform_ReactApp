@@ -1,31 +1,40 @@
-// LoginFormjsx
-import React from 'react';
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 
 const LoginForm = () => {
+    const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+
     return (
-        <div>
-        <h2>Iniciar Sesión</h2>
-        <form>
-            {/* Inputs para nombre de usuario y contraseña */}
-            <label htmlFor="username">Nombre de Usuario</label>
-            <input type="text" id="username" name="username" />
-            <label htmlFor="password">Contraseña</label>
-            <input type="password" id="password" name="password" />
-            {/* Botón de inicio de sesión */}
-            <button type="submit">Iniciar Sesión</button>
-
-            {/* Enlace para redirigir a la página de registro */}
-            <p>¿No tienes una cuenta? <a href="/register">Regístrate</a></p>
-
-            {/* Enlace para redirigir a la página de recuperación de contraseña */}
-            <p><a href="/forgot-password">¿Olvidaste tu contraseña?</a></p>
-
-            {/* Enlace para redirigir a la página de inicio */}
-            <p><a href="/">Volver al inicio</a></p>
-        </form>
-        </div>
+        <section className="login-form">
+            <h2 className="login-title">Iniciar Sesión</h2>
+            <p className="login-description">Por favor, inicia sesión para continuar.</p>
+            
+            <button className="login-button" onClick={() => loginWithRedirect()}>
+                Iniciar Sesión
+            </button>
+            
+            {isAuthenticated && (
+                <button className="logout-button" onClick={() => logout({ returnTo: window.location.origin })}>
+                    Cerrar Sesión
+                </button>
+            )}
+            
+            <div className="help-section">
+                <h3>¿Necesitas ayuda?</h3>
+                <p>
+                    Si tienes problemas para iniciar sesión, puedes <Link to="/forgot-password">restablecer tu contraseña</Link>.
+                </p>
+                <p>Si no tienes una cuenta, <Link to="/register">regístrate</Link>.</p>
+            </div>
+            
+            <nav className="login-navigation">
+                <Link to="/">Volver al inicio</Link>
+            </nav>
+        </section>
     );
 };
 
 export default LoginForm;
+
